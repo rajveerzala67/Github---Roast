@@ -36,8 +36,9 @@ app.use(cors({
 // Body Parser with strict size limit to prevent payload attacks
 app.use(express.json({ limit: '30kb' }));
 
-// Mount API routes
+// Mount API routes (supports both /api/analyze and /analyze)
 app.use('/api', analyzeRoutes);
+app.use('/', analyzeRoutes);
 
 // 404 Handler for undefined routes
 app.use((req, res, next) => {
