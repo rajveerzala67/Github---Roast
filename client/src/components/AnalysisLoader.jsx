@@ -14,10 +14,10 @@ export default function AnalysisLoader() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   useEffect(() => {
-    // Step progression every 1.5 seconds up to the final step
+    // Fast step progression every 600ms for snappy feel
     const interval = setInterval(() => {
       setCurrentStepIndex((prev) => (prev < STEPS.length - 1 ? prev + 1 : prev));
-    }, 1500);
+    }, 600);
 
     return () => clearInterval(interval);
   }, []);
